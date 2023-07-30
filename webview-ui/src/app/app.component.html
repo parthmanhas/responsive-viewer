@@ -1,0 +1,20 @@
+<main>
+  <div class="flex justify-between items-end w-full p-5">
+    <div class="flex justify-between flex-col">
+      <vscode-text-field ngDefaultControl [(ngModel)]="frameURL" (keydown.enter)="updateUrl()" autofocus>Enter Page
+        URL:</vscode-text-field>
+        <p class="text-xs text-mine-shaft-500 mt-2">Only http://localhost:* allowed</p>
+    </div>
+    <vscode-button class="w-auto" (click)="addNewFrame()">Add New Frame</vscode-button>
+  </div>
+  <div class="flex w-full p-5">
+    <vscode-button class="mr-3 whitespace-nowrap" (click)="addAllUniqueFrames()">Add All Unique frames</vscode-button>
+    <vscode-button class="mr-3 whitespace-nowrap" (click)="sortFramesByWidth()">Sort Frames By Width</vscode-button>
+    <vscode-button class="mr-3 whitespace-nowrap" (click)="sortFramesByHeight()">Sort Frames By Height</vscode-button>
+    <vscode-button class="whitespace-nowrap" (click)="clearAllFrames()">Close All Frames</vscode-button>
+  </div>
+  <!-- frames container -->
+  <div #framesContainer class="flex mb-3">
+    <ng-container #frames></ng-container>
+  </div>
+</main>
