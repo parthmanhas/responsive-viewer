@@ -1,0 +1,22 @@
+<div #selectHeadingContainer>
+    <div class="flex w-full justify-between items-end mb-2">
+        <label class="mb-0" 
+            for="screen-size">Select Screen
+            Size:</label>
+        <i class="codicon codicon-close cursor-pointer hover:bg-red-500" (click)="closeFrame()"></i>
+    </div>
+    <vscode-dropdown class="min-w-[218px]" ngDefaultControl [(ngModel)]="selectedValue" (ngModelChange)="onSelect()">
+        <vscode-option *ngFor="let deviceProfile of deviceProfiles" [value]="deviceProfile.id">{{deviceProfile.name}}
+            {{deviceProfile.width}}x{{deviceProfile.height}}
+        </vscode-option>
+    </vscode-dropdown>
+</div>
+<p>Width: {{selectedProfile?.width}}</p>
+<p>Height: {{selectedProfile?.height}}</p>
+<div #iframeContainer class="relative my-3 box-content border border-mine-shaft-900">
+    <div class="absolute w-full h-full bg-mine-shaft-900 flex justify-center items-center top-0 left-0" #overlay
+        *ngIf="!frameURL || (frameURL && showLoadingSpinner)">
+        <vscode-progress-ring *ngIf="frameURL && showLoadingSpinner"></vscode-progress-ring>
+    </div>
+    <iframe #iFrame [src]="safeUrl" (load)="onIframeLoaded()"></iframe>
+</div>
