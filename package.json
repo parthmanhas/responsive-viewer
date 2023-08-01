@@ -24,7 +24,7 @@
   "publisher": "parthmanhas.com",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/parthmanhas/responsive-viewer.git"
   },
   "scripts": {
     "install:all": "npm install && cd webview-ui && npm install",
