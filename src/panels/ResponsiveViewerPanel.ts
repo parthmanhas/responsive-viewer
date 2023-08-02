@@ -60,6 +60,7 @@ export class ResponsiveViewerPanel {
         {
           // Enable JavaScript in the webview
           enableScripts: true,
+          retainContextWhenHidden: true,
           // Restrict the webview to only load resources from the `out` and `webview-ui/build` directories
           localResourceRoots: [Uri.joinPath(extensionUri, "out"), Uri.joinPath(extensionUri, "webview-ui/build")],
         }
@@ -73,6 +74,7 @@ export class ResponsiveViewerPanel {
    * Cleans up and disposes of webview resources when the webview panel is closed.
    */
   public dispose() {
+    console.log('Dispose called');
     ResponsiveViewerPanel.currentPanel = undefined;
 
     // Dispose of the current webview panel
