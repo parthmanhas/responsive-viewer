@@ -25,7 +25,7 @@ This will delete(close) all the device frames
 ## Release Notes
 
 ### 1.0.1
-- Bug Fix : Retain editor context between editor switching
+- Bug Fix : Retain extension context between editor switching
 ### 1.0.0
 - Initial release of responsive-viewer
 
